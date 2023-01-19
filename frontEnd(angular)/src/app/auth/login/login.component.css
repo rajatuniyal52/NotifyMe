@@ -1,0 +1,33 @@
+.maindiv {
+  height: 100vh;
+  background-image: linear-gradient(to right, #71d191 0%, #aceee1 100% );
+}
+h2 {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  font-weight: 500;
+  color: brown;
+}
+.maindiv mat-card {
+  padding: 20px;
+  color: black;
+}
+
+.loginform {
+  padding: 20px;
+}
+.loginform button {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+}
+mat-toolbar {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+}
+.footer{
+  text-align: center;
+}

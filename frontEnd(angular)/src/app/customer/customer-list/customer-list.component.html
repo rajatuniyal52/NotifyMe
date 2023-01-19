@@ -1,0 +1,64 @@
+<div class="header">
+  <mat-toolbar >
+  
+    <span>Customer Table</span>
+   
+    <span class="example-spacer"></span>
+
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span >logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</div>
+<br>
+<button mat-raised-button (click)="openCustomerDialog()">Add Customer</button
+>&nbsp;
+
+<button
+  mat-raised-button
+  [routerLink]="'/customerScheduleData'"
+  (click)="clearCount()"
+>
+  See Schedule
+
+  <!-- <mat-icon class="icon">notifications</mat-icon> -->
+  <span class="badge" *ngIf="badgeCount > 0">{{ badgeCount }}</span>
+</button>
+
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon (click)="updateCustomer(element)">edit</mat-icon>&nbsp;
+      <mat-icon (click)="removeCustomer(element._id)">delete</mat-icon>&nbsp;
+      <button mat-stroked-button (click)="openSchedulerDialog(element._id)">
+        Add Schedule
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="contact">
+    <th mat-header-cell *matHeaderCellDef>Contact</th>
+    <td mat-cell *matCellDef="let element">{{ element.contact }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

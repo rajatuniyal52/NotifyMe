@@ -1,0 +1,111 @@
+<div fxLayoutAlign="center center" fxFlexFill class="maindiv">
+  <mat-card>
+    <h1>! NOTIFY ME !</h1>
+    <h2>SignUp User</h2>
+    <form
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      [formGroup]="myForm"
+      class="signupform"
+    >
+      <mat-form-field appearance="standard">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter first name"
+          formControlName="FirstName"
+        />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter last name"
+          formControlName="LastName"
+        />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter e-mail" formControlName="Email" />
+
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error *ngIf="Email.touched && !Email.valid">
+          <span *ngIf="Email.errors?.['required']"> email is required </span>
+          <span *ngIf="Email.errors?.['pattern']"> email is invalid </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="Password"
+          minlength="8"
+          maxlength="8"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,12}$"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="Password.touched && !Password.valid">
+          <span *ngIf="Password.errors?.['required']">
+            password is required
+          </span>
+          <span *ngIf="Password.errors?.['pattern']">
+            password must contain atleast one uppercase(A-Z), lowercase(a-z),
+            numeric value (0-9), and special character(@$!%*?&)
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field appearance="standard">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          [type]="hideconfirm ? 'password' : 'text'"
+          placeholder="confirm your password"
+          formControlName="ConfirmPassword"
+        />
+
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hideconfirm = !hideconfirm"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hideconfirm"
+        >
+          <mat-icon>{{ hideconfirm ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="ConfirmPassword.touched && !ConfirmPassword.valid">
+          <span *ngIf="ConfirmPassword.errors?.['required']">
+            confirm-password is required
+          </span>
+          <span *ngIf="ConfirmPassword?.errors?.['MustMatch']">
+            password doest not match
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="myForm.invalid"
+        (click)="onSignup()"
+      >
+        SignUp</button
+      ><br />
+    </form>
+    <p class="footer">Already have account? &nbsp;<a routerLink="/Login">Login</a></p>
+  </mat-card>
+</div>

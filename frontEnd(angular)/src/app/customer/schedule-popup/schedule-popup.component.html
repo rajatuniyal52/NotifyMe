@@ -1,0 +1,49 @@
+ <mat-card>
+  <div class="close-dialog"><mat-icon mat-dialog-close="" fontIcon="close">close</mat-icon></div>
+    <div><h1>Add Schedule</h1></div>
+    <form
+      [formGroup]="scheduleForm"
+      class="signupform"
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+    >
+       <mat-form-field appearance="standard" >
+        <mat-label>customerId</mat-label>
+        <input
+        
+      
+          matInput
+          placeholder="Enter customerId"
+          [disabled]="true"
+          formControlName="customerId"
+        
+        />
+    
+      </mat-form-field> 
+       <mat-form-field appearance="standard">
+        <mat-label>Date & Time</mat-label>
+        <input
+          type="datetime-local"
+          matInput
+         
+          placeholder="Enter date"
+          formControlName="date_time"
+        />
+       
+       </mat-form-field>
+     
+      <button
+      [disabled]="scheduleForm.invalid"
+        mat-raised-button
+        type="submit"
+        mat-dialog-close
+        cdkFocusInitial
+        (click)="onSchedulePopup()"
+      >
+        Save
+      </button>
+      
+      
+    </form>
+  </mat-card>  
+  

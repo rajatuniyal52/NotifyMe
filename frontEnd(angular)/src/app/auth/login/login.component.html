@@ -1,0 +1,42 @@
+<div fxLayoutAlign="center center" fxFlexFill class="maindiv">
+  <mat-card>
+    <h1>! NOTIFY ME !</h1>
+
+    <mat-toolbar>Login User</mat-toolbar>
+    <form
+      fxLayoutAlign="stretch"
+      fxLayout="column"
+      [formGroup]="myForm"
+     
+      class="loginform"
+    >
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="Email" />
+
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> </mat-form-field
+      ><br />
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="Password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button> </mat-form-field
+      ><br />
+      <button mat-raised-button color="primary" [disabled]="myForm.invalid"  (click)="onSubmit()">
+        LogIn
+      </button>
+    </form>
+    <p class="footer">Don't have account? &nbsp;<a routerLink="/SignUp">SignUp</a></p>
+  </mat-card>
+</div>

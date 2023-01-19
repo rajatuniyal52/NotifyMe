@@ -1,0 +1,25 @@
+
+mat-table {
+  word-spacing: 10px;
+}
+.customerWork {
+    background-color: rgb(2, 65, 46);
+    color: aliceblue;
+  }
+table.mat-table {
+  width: 100%;
+  column-width: 100px;
+}
+
+.close-dialog {
+  margin-left: 90%;
+
+}
+th.mat-header-cell{
+  padding: 12px;
+}
+.mat-cell {
+  /* display:block;  */
+ 
+  padding: 12px ;
+}

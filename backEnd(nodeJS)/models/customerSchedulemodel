@@ -1,0 +1,16 @@
+const mongoose = require("mongoose");
+
+var customerscheduleSchema = mongoose.Schema({
+  
+  customerId: mongoose.Types.ObjectId,
+  date_time: String,
+  
+ 
+});
+
+var customerSchedulemodel = mongoose.model(
+  "customerschedule-table",
+  customerscheduleSchema
+);
+
+module.exports = customerSchedulemodel;

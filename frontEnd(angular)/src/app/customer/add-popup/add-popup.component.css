@@ -1,0 +1,18 @@
+
+mat-toolbar {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+}
+button {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+}
+.close-dialog {
+  margin-left: 90%;
+
+}
+h1{
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+  text-align: center;
+}

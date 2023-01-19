@@ -1,0 +1,37 @@
+.maindiv {
+  height: 100vh;
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+}
+
+.maindiv mat-card {
+  padding: 20px;
+  color: black;
+}
+h2 {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  font-weight: 500;
+  color: brown;
+}
+
+.signupform {
+  padding: 10px;
+}
+
+.signupform button {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+}
+
+mat-toolbar {
+  background-color: rgb(2, 65, 46);
+  color: aliceblue;
+  padding: 20px;
+}
+.footer{
+  text-align: center;
+}

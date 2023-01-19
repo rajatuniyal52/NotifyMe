@@ -1,0 +1,64 @@
+<mat-card>
+  <div class="close-dialog">
+    <mat-icon mat-dialog-close="" fontIcon="close">close</mat-icon>
+  </div>
+
+  <div>
+    <h1>Add Customer</h1>
+  </div>
+  <form
+    [formGroup]="popupForm"
+    class="signupform"
+    fxLayoutAlign="stretch"
+    fxLayout="column"
+  >
+    <mat-form-field appearance="standard">
+      <mat-label> Name</mat-label>
+      <input
+        matInput
+        placeholder="Enter customer name"
+        formControlName="name"
+      />
+      <mat-error *ngIf="name.touched && !name.valid">
+        <span *ngIf="name.errors?.['required']"> Name is required </span>
+        
+      </mat-error>
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Contact</mat-label>
+      <input
+        matInput
+        placeholder="Enter contact no"
+        formControlName="contact"
+      />
+      <mat-error *ngIf="contact.touched && !contact.valid">
+        <span *ngIf="contact.errors?.['required']"> contact is required </span>
+        <span *ngIf="contact.errors?.['pattern']">
+          contact is invalid, please enter a 10 digit contact number
+        </span>
+      </mat-error>
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Description</mat-label>
+
+      <textarea
+        matInput
+        placeholder="Leave a comment"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      type="submit"
+      (click)="onPopup()"
+      [disabled]="popupForm.invalid"
+      mat-dialog-close
+      cdkFocusInitial
+    >
+      {{ actionBtn }}
+      
+    </button>
+  </form>
+</mat-card>
